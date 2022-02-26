@@ -8,10 +8,29 @@ class User extends Model {}
 User.init(
     {
         // Table Column Definitions Go Here
+        id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            primaryKey: true,
+            autoIncrement: true
+        },
+        username: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            unique: true
+        },
+        password: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [5]
+            }
+        }
     },
     {
-        // Table Configuration Options Go Here
-
+            // Set Up beforeCreate lifecycle hook functionality
+            
+        
         // Pass in our Imported Sequelize Connection
         sequelize,
         // Don't Automatically create createdAt/updatedAt timestamp fields
