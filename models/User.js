@@ -1,0 +1,28 @@
+const { Model, DataTypes } = require('sequelize');
+const sequelize = require('../config/connection');
+
+// Create our User Model
+class User extends Model {}
+
+// Define Table Columns and Configuration
+User.init(
+    {
+        // Table Column Definitions Go Here
+    },
+    {
+        // Table Configuration Options Go Here
+
+        // Pass in our Imported Sequelize Connection
+        sequelize,
+        // Don't Automatically create createdAt/updatedAt timestamp fields
+        timestamps: false,
+        // Don't Pluralize name of Database Table
+        freezeTableName: true,
+        // Use Underscores instead of camel-casing
+        underscored: true,
+        // Make it so our Model Name stays Lowercase in the Database
+        modelName: 'user'
+    }
+);
+
+module.exports = User;
