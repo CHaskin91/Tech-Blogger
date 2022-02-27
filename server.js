@@ -3,12 +3,24 @@ const sequelize = require('./config/connection');
 const path = require('path');
 const routes = require('./controllers');
 const exphbs = require('express-handlebars');
+const session = require('express-session');
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
+
+require('dotenv').config();
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
 // Setup Session Here
-// PLACEHOLDER COMMENT
+const sess = {
+    secret: 'supersecretsessionsecrettext',
+    cookie: {},
+    resave: false,
+    saveUninitialized: true,
+    store: new SequelizeStore({
+        db: sequelize
+    })
+};
 
 // Handlebars Initialization
 const hbs = exphbs.create({});
