@@ -8,6 +8,8 @@ Once logged in, the user will be directed to their dashboard where they can view
 
 On the homepage, clicking on a post title will open the post. The user can comment on the posts.
 
+![image](https://github.com/CHaskin91/Tech-Blogger/blob/main/assets/homepage_screenshot.PNG)
+
 ## Table of Contents
 
 - [Installation](#Installation)
