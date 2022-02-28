@@ -4,23 +4,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MVC Tech Blog</title>
+  <title>MVC Tech Blogger</title>
   <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 
 <body>
   <div class="wrapper">
     <header>
-        <h1>
-            <a href="/">MVC Tech Blogger</a>
-        </h1>
-        <div>
-            <nav>
-                <a href="/">Home</a>
-                <a href="/" id="logout">Logout</a>
-                <a href="/login">Login</a>
-            </nav>
-        </div>
+      <div>
+        <nav>
+          <a href="/">Home</a>
+          <a href="/dashboard">Dashboard</a>
+          {{#if loggedIn}}
+          <a href="/" id="logout">Logout</a>
+          {{else}}
+          <a href="/login">Login</a>
+          {{/if}}
+        </nav>
+      </div>
+      <div>
+        <h1 class="home-title">MVC Tech Blogger</h1>
+      </div>
     </header>
     <main>
       {{{ body }}}
@@ -29,7 +33,9 @@
       Thanks for visiting!
     </footer>
   </div>
-    <script src="/javascript/logout.js"></script>
+  {{#if loggedIn}}
+  <script src="/javascript/logout.js"></script>
+  {{/if}}
 </body>
 
 </html>
