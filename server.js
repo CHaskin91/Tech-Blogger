@@ -12,19 +12,19 @@ require('dotenv').config();
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-// Setup Session Here
+//setup session
 const sess = {
-    secret: 'supersecretsessionsecrettext',
-    cookie: {},
-    resave: false,
-    saveUninitialized: true,
-    store: new SequelizeStore({
-        db: sequelize
-    })
+  secret: 'supersecretsessionsecrettext',
+  cookie: { maxAge: 180000},
+  resave: false,
+  saveUninitialized: true,
+  store: new SequelizeStore({
+    db: sequelize
+  })
 };
 
-// Handlebars Initialization
-const hbs = exphbs.create({});
+//handlebars initialization
+const hbs = exphbs.create({ helpers });
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
@@ -34,10 +34,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(session(sess));
 
-// turn on routes
+//use routes
 app.use(routes);
 
-// Turn on Connection to DB and Server
 sequelize.sync({ force: false }).then(() => {
-    app.listen(PORT, () => console.log(`Now Listening on ${PORT}`));
+  app.listen(PORT, () => console.log(`Now Listening on ${PORT}`));
 });
