@@ -21,8 +21,8 @@ No installation is necessary - see the deployed Heroku Link
 
 ## Links
 
-[Heroku]()
-[GitHub Repo](https://github.com/CHaskin91/Tech-Blogger)
+- [Heroku]()
+- [GitHub Repo](https://github.com/CHaskin91/Tech-Blogger)
 
 ## Tools
 
